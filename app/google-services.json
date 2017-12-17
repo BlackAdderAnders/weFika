@@ -1,0 +1,42 @@
+{
+  "project_info": {
+    "project_number": "853739803957",
+    "firebase_url": "https://wefika-27d8b.firebaseio.com",
+    "project_id": "wefika-27d8b",
+    "storage_bucket": "wefika-27d8b.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:853739803957:android:b37a75df1e57777b",
+        "android_client_info": {
+          "package_name": "com.blackadder.wefika"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "853739803957-ffkhlolol4u6kq3h7oaoip2oo5j6k5cb.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCUxzsQ6ZCCZe5GdowUPU2eQg9IkROeiPk"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
