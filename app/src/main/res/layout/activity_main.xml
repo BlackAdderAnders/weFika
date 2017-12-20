@@ -34,12 +34,12 @@
         android:layout_marginTop="25dp"
         android:ems="10"
         android:inputType="textPersonName"
+        android:text="Location"
         android:textAlignment="center"
         app:layout_constraintBottom_toTopOf="@+id/editText2"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/button2"
-        tools:text="Location" />
+        app:layout_constraintTop_toBottomOf="@+id/button2" />
 
     <EditText
         android:id="@+id/editText2"
@@ -50,10 +50,10 @@
         android:layout_marginStart="99dp"
         android:ems="10"
         android:inputType="time"
+        android:text="13:37"
         android:textAlignment="center"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        tools:text="13:37" />
+        app:layout_constraintStart_toStartOf="parent" />
 
 </android.support.constraint.ConstraintLayout>
