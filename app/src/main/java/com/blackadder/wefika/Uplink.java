@@ -24,7 +24,7 @@ public class Uplink {
 
             conn.setDoOutput(true);
 
-            String input = "{\"notification\" : {\"title\" : \"Test weFika\"}, \"to\":\"test\"}";
+            String input = "{\"notification\" : {\"title\" : \"Test weFika " + i + "\"}, \"to\":\"test\"}";
 
             OutputStream os = conn.getOutputStream();
             os.write(input.getBytes());
