@@ -12,11 +12,15 @@ public class MainActivity extends AppCompatActivity {
     SimpleDateFormat sdf = new SimpleDateFormat("HH:mm");
     Uplink uplink = new Uplink();
     Date now = new Date();
+    public String token;
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        CollectToken ct = new CollectToken();
+        this.token = ct.token;
+
         setContentView(R.layout.activity_main);
 
         EditText test2 = findViewById(R.id.editText2);
