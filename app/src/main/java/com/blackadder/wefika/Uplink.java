@@ -1,54 +1,187 @@
 package com.blackadder.wefika;
 
+import android.content.Context;
+import android.provider.SyncStateContract;
+import android.util.Log;
+
+import com.google.android.gms.common.api.Response;
+
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+
 import java.io.BufferedReader;
+import java.io.IOException;
 import java.io.InputStreamReader;
-import java.io.OutputStream;
+import java.io.OutputStreamWriter;
 import java.net.HttpURLConnection;
+import java.net.MalformedURLException;
 import java.net.URL;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 /**
  * Created by erommey on 2017-12-20.
  */
 
 public class Uplink {
-    public void sendText(String i) {
+        final static private String FCM_URL = "https://fcm.googleapis.com/fcm/send";
+        final static private String SERVER_KEY = "AIzaSyB_Uz5kZEQzCLsNN0RPohrEe6xoWAKykGY ";
+        /**
+         *
+         * Method to send push notification to Android FireBased Cloud messaging Server.
+         * @param tokenId Generated and provided from Android Client Developer
+         * @param message which contains actual information.
+         *
+         */
 
-        try {
-            final String apiKey = "AIzaSyB_Uz5kZEQzCLsNN0RPohrEe6xoWAKykGY";
-            URL url = new URL("https://fcm.googleapis.com/fcm/send");
-            HttpURLConnection conn = (HttpURLConnection) url.openConnection();
-            conn.setDoOutput(true);
-            conn.setRequestMethod("POST");
-            conn.setRequestProperty("Content-Type", "application/json");
-            conn.setRequestProperty("Authorization", "key=" + apiKey);
+        static void sendText(String tokenId, String message){
 
-            conn.setDoOutput(true);
+            try{
+// Create URL instance.
+                URL url = new URL(FCM_URL);
+// create connection.
+                HttpURLConnection conn;
+                conn = (HttpURLConnection) url.openConnection();
+                conn.setUseCaches(false);
+                conn.setDoInput(true);
+                conn.setDoOutput(true);
+//set method as POST or GET
+                conn.setRequestMethod("POST");
+//pass FCM server key
+                conn.setRequestProperty("Authorization","key="+SERVER_KEY);
+//Specify Message Format
+                conn.setRequestProperty("Content-Type","application/json");
+//Create JSON Object & pass value
+                JSONObject infoJson = new JSONObject();
 
-            String input = "{\"notification\" : {\"title\" : \"Test weFika " + i + "\"}, \"to\":\"test\"}";
+                infoJson.put("title","Alankit");
+                infoJson.put("body", message);
 
-            OutputStream os = conn.getOutputStream();
-            os.write(input.getBytes());
-            os.flush();
-            os.close();
+                JSONObject json = new JSONObject();
+                json.put("to", tokenId.trim());
+                json.put("notification", infoJson);
 
-            int responseCode = conn.getResponseCode();
-            System.out.println("\nSending 'POST' request to URL : " + url);
-            System.out.println("Post parameters : " + input);
-            System.out.println("Response Code : " + responseCode);
+                System.out.println("json :" +json.toString());
+                System.out.println("infoJson :" +infoJson.toString());
+                OutputStreamWriter wr = new OutputStreamWriter(conn.getOutputStream());
+                wr.write(json.toString());
+                wr.flush();
+                int status = 0;
+                if( null != conn ){
+                    status = conn.getResponseCode();
+                }
+                if( status != 0){
 
-            BufferedReader in = new BufferedReader(new InputStreamReader(conn.getInputStream()));
-            String inputLine;
-            StringBuffer response = new StringBuffer();
-
-            while ((inputLine = in.readLine()) != null) {
-                response.append(inputLine);
+                    if( status == 200 ){
+//SUCCESS message
+                        BufferedReader reader = new BufferedReader(new
+                                InputStreamReader(conn.getInputStream()));
+                        System.out.println("Android Notification Response : " + reader.readLine());
+                    }else if(status == 401){
+//client side error
+                        System.out.println("Notification Response : TokenId : " + tokenId + " Error occurred :");
+                    }else if(status == 501){
+//server side error
+                        System.out.println("Notification Response : [ errorCode=ServerError ] TokenId : " + tokenId);
+                    }else if(status == 503){
+//server side error
+                        System.out.println("Notification Response : FCM Service is Unavailable. TokenId : " + tokenId);
+                    }
+                }
+            }catch(MalformedURLException mlfexception){
+// Prototcal Error
+                System.out.println("Error occurred while sending push Notification!.." + mlfexception.getMessage());
+            }catch(Exception mlfexception){
+//URL problem
+                System.out.println("Reading URL, Error occurred while sending push Notification!.." + mlfexception.getMessage());
             }
-            in.close();
 
-            System.out.println(response.toString());
-        } catch (Exception e) {
-            System.out.print(e.getMessage());
         }
-    }
-}
+
+        static void send_FCM_NotificationMulti(List<String> putIds2, String tokenId, String message){
+            try{
+                // Create URL instance.
+                URL url = new URL(FCM_URL);
+                // create connection.
+                HttpURLConnection conn;
+                conn = (HttpURLConnection) url.openConnection();
+                conn.setUseCaches(false);
+                conn.setDoInput(true);
+                conn.setDoOutput(true);
+                //set method as POST or GET
+                conn.setRequestMethod("POST");
+                //pass FCM server key
+                conn.setRequestProperty("Authorization","key="+SERVER_KEY);
+                //Specify Message Format
+                conn.setRequestProperty("Content-Type","application/json");
+                //Create JSON Object & pass value
+
+                JSONArray regId = null;
+                JSONObject objData = null;
+                JSONObject data = null;
+                JSONObject notif = null;
+
+                regId = new JSONArray();
+                for (int i = 0; i < putIds2.size(); i++) {
+                    regId.put(putIds2.get(i));
+                }
+                data = new JSONObject();
+                data.put("message", message);
+                notif = new JSONObject();
+                notif.put("title", "Alankit Universe");
+                notif.put("text", message);
+
+                objData = new JSONObject();
+                objData.put("registration_ids", regId);
+                objData.put("data", data);
+                objData.put("notification", notif);
+                System.out.println("!_@rj@_group_PASS:>"+ objData.toString());
+
+
+                System.out.println("json :" +objData.toString());
+                OutputStreamWriter wr = new OutputStreamWriter(conn.getOutputStream());
+
+                wr.write(objData.toString());
+                wr.flush();
+                int status = 0;
+                if( null != conn ){
+                    status = conn.getResponseCode();
+                }
+                if( status != 0){
+
+                    if( status == 200 ){
+                        //SUCCESS message
+                        BufferedReader reader = new BufferedReader(new
+                                InputStreamReader(conn.getInputStream()));
+                        System.out.println("Android Notification Response : " +
+                                reader.readLine());
+                    }else if(status == 401){
+                        //client side error
+                        System.out.println("Notification Response : TokenId : " + tokenId +
+                                           "Error occurred :");
+                    }else if(status == 501){
+                        //server side error
+                        System.out.println("Notification Response : [ errorCode=ServerError ] TokenId : " + tokenId);
+                    }else if( status == 503){
+                        //server side error
+                        System.out.println("Notification Response : FCM Service is Unavailable TokenId : " + tokenId);
+                    }
+                }
+            }catch(MalformedURLException mlfexception){
+                // Prototcal Error
+                System.out.println("Error occurred while sending push Notification!.." +
+                        mlfexception.getMessage());
+            }catch(IOException mlfexception){
+                //URL problem
+                System.out.println("Reading URL, Error occurred while sending push Notification!.." + mlfexception.getMessage());
+            }catch (Exception exception) {
+                //General Error or exception.
+                System.out.println("Error occurred while sending push Notification!.." +
+                        exception.getMessage());
+            }
+
+        }
 
