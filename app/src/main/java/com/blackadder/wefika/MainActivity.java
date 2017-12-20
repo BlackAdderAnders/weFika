@@ -12,7 +12,7 @@ public class MainActivity extends AppCompatActivity {
     SimpleDateFormat sdf = new SimpleDateFormat("HH:mm");
     Uplink uplink = new Uplink();
     Date now = new Date();
-
+    CollectToken ct = new CollectToken();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -22,6 +22,8 @@ public class MainActivity extends AppCompatActivity {
         EditText test2 = findViewById(R.id.editText2);
         String time = sdf.format(now);
         test2.setHint(time);
+
+        ct.onTokenRefresh();
 
     }
 
@@ -37,7 +39,7 @@ public class MainActivity extends AppCompatActivity {
             testText2 = sdf.format(now);
         }
 
-        uplink.sendText(testText1 + testText2);
+        uplink.sendText(ct.token,testText1 + testText2);
 
         test1.setText("");
         test2.setText("");
