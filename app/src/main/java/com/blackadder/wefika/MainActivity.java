@@ -41,7 +41,7 @@ public class MainActivity extends AppCompatActivity {
             testText2 = sdf.format(now);
         }
 
-        uplink.sendText(testText1 + testText2);
+        uplink.sendText(testText1 , testText2);
 
         test1.setText("");
         test2.setText("");
