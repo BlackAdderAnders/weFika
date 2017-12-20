@@ -2,4 +2,6 @@
     <string name="app_name">weFika</string>
     <string name="fikatime">Fika time!</string>
     <string name="staticText">13:37</string>
+    <string name="location">Location</string>
+    <string name="_13_37">13:37</string>
 </resources>
