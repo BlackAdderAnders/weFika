@@ -10,12 +10,15 @@ import android.content.IntentFilter;
 import android.media.RingtoneManager;
 import android.net.Uri;
 import android.os.Handler;
+import android.support.design.widget.TabLayout;
 import android.support.v4.app.NotificationCompat;
 import android.support.v4.content.LocalBroadcastManager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
+import android.widget.Toast;
+
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
@@ -70,4 +73,25 @@ public class MainActivity extends AppCompatActivity {
         test1.setText("");
         test2.setText("");
     }
+
+    public void changeViewToSettings(View view) {
+        System.out.println("QMASVEN: Settings!");
+    }
+
+    tabItem.addOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {
+        @Override
+        public void onTabSelected(TabLayout.Tab tab) {
+            Toast.makeText(mActivity, "hai", Toast.LENGTH_SHORT).show();
+        }
+
+        @Override
+        public void onTabUnselected(TabLayout.Tab tab) {
+
+        }
+
+        @Override
+        public void onTabReselected(TabLayout.Tab tab) {
+
+        }
+    });
 }

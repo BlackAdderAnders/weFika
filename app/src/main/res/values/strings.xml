@@ -6,4 +6,6 @@
     <string name="_13_37">13:37</string>
     <string name="default_notification_channel_id">1</string>
     <string name="default_notification_channel_name">Default</string>
+    <string name="Main">Main</string>
+    <string name="Settings">Settings</string>
 </resources>
