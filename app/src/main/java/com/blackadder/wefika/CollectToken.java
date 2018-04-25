@@ -35,6 +35,9 @@ public class CollectToken extends FirebaseInstanceIdService {
         // manage this apps subscriptions on the server side, send the
         // Instance ID token to your app server.
         token = refreshedToken;
+
+        //Send this updated token to WEBSERVICE
+        // TODO: Send refreshedToken to webservice
     }
 
     public String getIid() {

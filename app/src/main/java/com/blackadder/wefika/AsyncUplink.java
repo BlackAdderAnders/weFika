@@ -51,37 +51,13 @@ public class AsyncUplink extends AsyncTask<String, String, String> {
             Log.d("JSON", "Start of connexion");
             URL url = new URL(params[0]);
             int responseCode = getHttpConnection(params[0], params[1]);
-            //conn = (HttpURLConnection) url.openConnection();
-            //conn.setReadTimeout(15000);
-            //conn.setConnectTimeout(15000);
-            //conn.connect();
-
-            //int responseCode=conn.getResponseCode();
-            //System.out.print("In async: " + params[1]);
-
-            //BufferedWriter out = new BufferedWriter(new OutputStreamWriter(conn.getOutputStream()));
-            //out.write(params[1]);
-            //out.flush();
-            //out.close();
 
             //HTTP_OK --> 200
             //HTTP_CONFLICT --> 409
             if (responseCode == 200 ) {
-                //String line;
-                //BufferedReader br=new BufferedReader(new InputStreamReader(conn.getInputStream()));
-                //while ((line=br.readLine()) != null) {
-                //    response+=line;
-                //}
-                //return response;
                 System.out.println("ResponsCode: 200");
             }
             else if(responseCode == 409){
-                //String line;
-                //BufferedReader br=new BufferedReader(new InputStreamReader(conn.getErrorStream()));
-                //while ((line=br.readLine()) != null) {
-                //    responseError+=line;
-                //}
-                //return responseError;
                 System.out.println("ResponsCode: 409");
             }
             else {
@@ -113,7 +89,6 @@ public class AsyncUplink extends AsyncTask<String, String, String> {
     }
 
     private int getHttpConnection(String... params) throws IOException {
-        System.out.println("In getHTTP Connection");
         System.out.println("Param 0: " + params[0].toString());
         System.out.println("Param 1: " + params[1].toString());
         InputStream stream = null;
@@ -134,19 +109,14 @@ public class AsyncUplink extends AsyncTask<String, String, String> {
             //String urlParameters = "name="+name;
             writer.write(params[1]);
             writer.flush();
-            System.out.println("writer is flushed.");
             responsCode = httpConnection.getResponseCode();
             if (httpConnection.getResponseCode() == HttpURLConnection.HTTP_OK) {
-                System.out.println("return value is HTTP OK here.");
                 stream = httpConnection.getInputStream();
             }
             writer.close();
         } catch (Exception ex) {
-            System.out.println("Caught an error: " + ex.toString());
             ex.printStackTrace();
         }
-        System.out.println("Returning from method now.");
-        System.out.println("Return value from http was: " + responsCode);
         return responsCode;
     }
 }
