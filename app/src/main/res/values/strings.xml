@@ -4,4 +4,6 @@
     <string name="staticText">13:37</string>
     <string name="location">Location</string>
     <string name="_13_37">13:37</string>
+    <string name="default_notification_channel_id">1</string>
+    <string name="default_notification_channel_name">Default</string>
 </resources>
