@@ -89,14 +89,11 @@ public class AsyncUplink extends AsyncTask<String, String, String> {
     }
 
     private int getHttpConnection(String... params) throws IOException {
-        System.out.println("Param 0: " + params[0].toString());
-        System.out.println("Param 1: " + params[1].toString());
         InputStream stream = null;
         URL url = new URL(params[0]);
         URLConnection connection = url.openConnection();
         int responsCode = 0;
         try {
-            System.out.println("Trying to connect...");
             HttpURLConnection httpConnection = (HttpURLConnection) connection;
             httpConnection.setRequestMethod("POST");
             httpConnection.setRequestProperty("Authorization", "key=AIzaSyCySRnfKh2wQ4Jex-3sSG7uGnhHE1xLB1Q");
