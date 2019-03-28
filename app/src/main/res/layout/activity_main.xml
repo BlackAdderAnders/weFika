@@ -28,30 +28,6 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintVertical_chainStyle="packed" />
 
-    <android.support.design.widget.TabLayout
-        android:id="@+id/tabLayout1"
-        android:layout_width="344dp"
-        android:layout_height="44dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginStart="8dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-
-        <android.support.design.widget.TabItem
-            android:id="@+id/tabMain"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/Main" />
-
-        <android.support.design.widget.TabItem
-            android:id="@+id/tabSettings"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:onClick="changeViewToSettings"
-            android:text="@string/Settings" />
-
-    </android.support.design.widget.TabLayout>
 
     <EditText
         android:id="@+id/editText"

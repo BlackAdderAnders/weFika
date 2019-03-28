@@ -3,16 +3,16 @@ package com.blackadder.wefika;
 import android.app.NotificationManager;
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.design.widget.TabLayout;
-import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
-
+import com.google.android.material.tabs.TabLayout;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
 
 import static android.view.View.INVISIBLE;
 import static android.view.View.VISIBLE;
@@ -33,9 +33,9 @@ public class MainActivity extends AppCompatActivity {
     EditText editTime;
     EditText editUser;
     EditText editGroup;
-    CoordinatorLayout tabLayout;
-    CoordinatorLayout tabMain;
-    CoordinatorLayout tabSettings;
+    TabLayout.Tab tabLayout;
+    TabLayout.Tab tabMain;
+    TabLayout.Tab tabSettings;
 
 
     @Override
@@ -59,7 +59,7 @@ public class MainActivity extends AppCompatActivity {
 
         coffe       = findViewById(R.id.button2);
         editLoca    = findViewById(R.id.editText);
-        editTime    = findViewById(R.id.editText2);
+        editTime    = test2; //findViewById(R.id.editText2);
         editUser    = findViewById(R.id.editText3);
         editGroup   = findViewById(R.id.editText4);
         tabLayout   = findViewById(R.id.tabLayout1);
