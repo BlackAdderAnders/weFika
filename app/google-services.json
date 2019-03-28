@@ -1,27 +1,35 @@
 {
   "project_info": {
-    "project_number": "853739803957",
-    "firebase_url": "https://wefika-27d8b.firebaseio.com",
-    "project_id": "wefika-27d8b",
-    "storage_bucket": "wefika-27d8b.appspot.com"
+    "project_number": "957379305821",
+    "firebase_url": "https://wefika-9d886.firebaseio.com",
+    "project_id": "wefika-9d886",
+    "storage_bucket": "wefika-9d886.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:853739803957:android:b37a75df1e57777b",
+        "mobilesdk_app_id": "1:957379305821:android:b37a75df1e57777b",
         "android_client_info": {
           "package_name": "com.blackadder.wefika"
         }
       },
       "oauth_client": [
         {
-          "client_id": "853739803957-ffkhlolol4u6kq3h7oaoip2oo5j6k5cb.apps.googleusercontent.com",
+          "client_id": "957379305821-i9kr5kq78n3gta9hbslt5th271aclqqt.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.blackadder.wefika",
+            "certificate_hash": "8d38944c3abb8b3f1b74b9b21ef094a50b2de77b"
+          }
+        },
+        {
+          "client_id": "957379305821-51ahca2n1r68qgu43ei2ucnmjird0t24.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyCUxzsQ6ZCCZe5GdowUPU2eQg9IkROeiPk"
+          "current_key": "AIzaSyDceBVclfhv9Cf3sozZlxQ6L3WP90hPN9A"
         }
       ],
       "services": {
@@ -29,8 +37,57 @@
           "status": 1
         },
         "appinvite_service": {
-          "status": 1,
-          "other_platform_oauth_client": []
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "957379305821-51ahca2n1r68qgu43ei2ucnmjird0t24.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:957379305821:android:28ef3e8208dabe8e",
+        "android_client_info": {
+          "package_name": "wefika.gmail.com"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "957379305821-q5fud55umv0qpntqtu2epjhmo3p2uikn.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "wefika.gmail.com",
+            "certificate_hash": "8d38944c3abb8b3f1b74b9b21ef094a50b2de77b"
+          }
+        },
+        {
+          "client_id": "957379305821-51ahca2n1r68qgu43ei2ucnmjird0t24.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDceBVclfhv9Cf3sozZlxQ6L3WP90hPN9A"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "957379305821-51ahca2n1r68qgu43ei2ucnmjird0t24.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
         },
         "ads_service": {
           "status": 2

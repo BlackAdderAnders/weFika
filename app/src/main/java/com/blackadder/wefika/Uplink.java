@@ -28,7 +28,7 @@ public class Uplink {
 
     //Variables
     final static private String FCM_URL = "https://fcm.googleapis.com/fcm/send";
-    final static private String SERVER_KEY = "AAAAxsbblTU:APA91bHcBlHZaUtJRLSxksNvLqX9Krcn1psUjhOCpqBJuN3A2z8koxTJtehhq-DUKv9FwDTQGfsmizVG4haB7dMh1fbUe1t3xJW1JINsTAx4fpw84TbbUEz4KqekOmtxYy5UqsZaekLK";
+    final static private String SERVER_KEY = "AAAA3uhA4V0:APA91bF0ftVUg6BtPbyPOOIcAC2hdKAOSNZhp164u-Ljd85CcuUUrseJHEroO8cg79s1gjDKUKTdY2oQ8IPJCXwWizVsPZ3xX0i62pymkCjUecY30XwhW_sjkeQGhgqGyqaj-eyjFkXJ";
 
     /**
      * Method to send push notification to Android FireBased Cloud messaging Server.
