@@ -96,7 +96,7 @@ public class AsyncUplink extends AsyncTask<String, String, String> {
         try {
             HttpURLConnection httpConnection = (HttpURLConnection) connection;
             httpConnection.setRequestMethod("POST");
-            httpConnection.setRequestProperty("Authorization", "key=AIzaSyCySRnfKh2wQ4Jex-3sSG7uGnhHE1xLB1Q");
+            httpConnection.setRequestProperty("Authorization", "key=AIzaSyCkoFjFwDTtK2Qeb6_qjJm537JFXkm_DIg");
             httpConnection.setRequestProperty("Content-Type", "application/json;charset=UTF-8");
             httpConnection.setDoOutput(true);
             httpConnection.connect();
