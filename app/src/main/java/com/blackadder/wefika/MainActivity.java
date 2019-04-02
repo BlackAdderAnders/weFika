@@ -62,9 +62,7 @@ public class MainActivity extends AppCompatActivity {
         editTime    = test2; //findViewById(R.id.editText2);
         editUser    = findViewById(R.id.editText3);
         editGroup   = findViewById(R.id.editText4);
-        tabLayout   = findViewById(R.id.tabLayout1);
-        tabMain     = findViewById(R.id.tabMain);
-        tabSettings = findViewById(R.id.tabSettings);
+        //tabLayout   = findViewById(R.id.tabLayout);
 
 
         String channelId  = getString(R.string.default_notification_channel_id);
@@ -86,7 +84,7 @@ public class MainActivity extends AppCompatActivity {
         });
 
 
-
+        /*
         tabLayout.addOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {
             @Override
             public void onTabSelected(TabLayout.Tab tab) {
@@ -118,6 +116,7 @@ public class MainActivity extends AppCompatActivity {
 
             }
         });
+        */
 
     }
 
